@@ -279,7 +279,8 @@ function fn_overlapped(){
 							<option value="hotmail.com">hotmail.com</option>
 							<option value="paran.com">paran.com</option>
 							<option value="nate.com">nate.com</option>
-							<option value="google.com">google.com</option>								<option value="gmail.com">gmail.com</option>
+							<option value="google.com">google.com</option>								
+							<option value="gmail.com">gmail.com</option>
 							<option value="empal.com">empal.com</option>
 							<option value="korea.com">korea.com</option>
 							<option value="freechal.com">freechal.com</option>
