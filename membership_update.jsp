@@ -10,19 +10,12 @@
 <!DOCTYPE html>
 <html>
 <head>
- <style>
- 	body{
- 		background-color : rgb(111,167,235);
- 	}
- </style>
 <meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <body>
-<center>
-<h1>회원가입 완료</h1>
-</center>
-<% 
+<h1>업데이트 완료</h1>
+<%
 
 	Connection conn = null;
 
@@ -31,10 +24,9 @@
 	String pwd = "jinsang1027#"; //MySQL에 접속을 위한 계정의 암호
 	Class.forName("com.mysql.jdbc.Driver");
 	conn = DriverManager.getConnection(url, id, pwd);
-
 	
+	String member_id =(String)session.getAttribute("member_id");
 	
-	String usr_id = request.getParameter("id");
 	String usr_pwd = request.getParameter("pwd");
 	String usrname = request.getParameter("userName");
 	String gender = request.getParameter("gender");
@@ -55,54 +47,35 @@
 	String addr_rest = request.getParameter("addr_rest"); //상세 주소
 
 	String tel = num1 + "-" + num2 + "-" + num3; //전화번호 - 붙여서 합치기
-	/*String email = front + "@" + rear; //이메일 @붙여서 합치기*/
 	
-	String sql = "INSERT INTO membership_join VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	String sql = "UPDATE membership_join SET member_pwd='"+usr_pwd+"',member_name='"+usrname+"', member_gender='"+gender+"',birth_y='"+year+"',birth_m='"+month+"',birth_d='"+day+"', birth_kind='"+kind+"',tel='"+tel+"',sms_al='"+sms_al+"',email_id='"+email_front+"',email_domain='"+email_rear+"',email_al='"+email_al+"',addr_post='"+addr_post+"',addr_lot='"+addr_lot+"',addr_road='"+addr_road+"',addr_rest='"+addr_rest+"' WHERE member_id='"+member_id+"'";
+			
+												
 	
+	
+	/*String sql = "UPDATE membership_join SET member_pwd=?, member_name=?, member_gender=?, " +
+                 "birth_y=?, birth_m=?, birth_d=?, birth_kind=?, tel=?, sms_al=?, email_id=?, " +
+                 "email_domain=?, email_al=?, addr_post=?, addr_lot=?, addr_road=?, addr_rest=? " +
+                 "WHERE member_id=?";*/
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 	
 	try{
-		
-
-		pstmt.setString(1,usr_id);
-		pstmt.setString(2,usr_pwd);
-		pstmt.setString(3,usrname);
-		pstmt.setString(4,gender);
-		pstmt.setString(5,year);
-		pstmt.setString(6,month);
-		pstmt.setString(7,day);
-		pstmt.setString(8,kind);
-		pstmt.setString(9,tel);
-		pstmt.setString(10,sms_al);
-		pstmt.setString(11,email_front);
-		pstmt.setString(12,email_rear);
-		pstmt.setString(13,email_al);
-		pstmt.setString(14,addr_post);
-		pstmt.setString(15,addr_lot);
-		pstmt.setString(16,addr_road);
-		pstmt.setString(17,addr_rest);
-		
 		pstmt.executeUpdate();
-		
-		}catch (SQLException e) {
+	}catch (SQLException e) {
 			e.printStackTrace();
 		} finally{
 			try {
 				if(pstmt!=null && !pstmt.isClosed()) {
 					pstmt.close();
-					}
+				}
 			}catch(SQLException e) {
 					e.printStackTrace();
 			}
 		}
-		%>
-		<form action="membership_login.jsp" method="get" name="login" id="login">
-		<center>
-			<input type="submit" value="메인 페이지">
-		</center>
-		</form>
-	
-	
-	
+%>
+		<script>
+		alert("회원정보가 수정되었습니다. 로그인페이지로 돌아갑니다.");
+		window.location.href='membership_login.jsp';
+		</script>
 </body>
 </html>

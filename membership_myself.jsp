@@ -8,16 +8,13 @@
 
   <title>회원 가입</title>
   <style>
+  body { background-color: skyblue}
   .info{
-  	backgrounf-color : rgb(111,167,235);
+  	background-color : rgb(111,167,235);
   }
   </style>
   
-  <style>
-  .input_info{
-  	backgrounf-color : orange;
-  }
-  </style>
+  
   
 	<script>
 	 	/*아이디 점검*/
@@ -107,43 +104,43 @@
 	</script>
 </head>
 <body>
-
+<center>
 	<h1>필수입력사항</h1>
 	<form name = "registerform" action = "membership_ok.jsp" onSubmit = "return validateForm()">
 	<table border="1">
 	<!-- 아이디 -->
 	<tr><td class="info">아이디</td>
-		<td class="info_input">
+		<td class="input_info">
 			<input type = "text" name = "id" placeholder="아이디를 입력하세요">
 		</td>
 	</tr>
 	<!-- 비밀번호 -->	
 	<tr><td class="info">비밀번호</td>
-		<td class="info_input">
+		<td class="input_info">
 			<input type="password" name="pwd" placeholder="비밀번호를 입력하세요">
 		</td>
 	</tr>
 	<tr><td class="info">비밀번호확인</td>
-		<td class="info_input">
+		<td class="input_info">
 			<input type="password" name="check_pwd">
 		</td> 
 	</tr>
 	<!-- 이름 -->
 	<tr><td class="info">이름</td>	
-		<td class="info_input">
+		<td class="input_info">
 			<input type="text" name="userName">
 		</td>
 	</tr>
 	<!-- 성별 -->
 	<tr><td class="info">성별</td>
-		<td class="info_input">
+		<td class="input_info">
 			<input type="radio" name="gender" value="male" >남성
 			<input type="radio" name="gender" value="female" >여성
 		</td>
 	</tr>	
 	<!-- 생년월일 -->
 	<tr><td class="info">법정생년월일</td>
-		<td class="info_input">
+		<td class="input_info">
 			<select name="birthYear">
 				<script>
 				for(var i = 2023 ; i >=1920 ; i--){
@@ -211,9 +208,9 @@
 			</td>
 		</tr>
 	</table>
-	<input type="submit" value="register">	
+	<input type="submit" value="회원가입">	
 	</form>
 	
-
+</center>
 </body>
 </html>
