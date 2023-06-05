@@ -4,7 +4,7 @@
 <html>
 <head>
 <style>
-		body { background-color: rgb(111,167,235)}
+		body { background-color: skyblue}
 		h1 {
 			color: navy;
   			

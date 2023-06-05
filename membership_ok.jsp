@@ -12,7 +12,7 @@
 <head>
  <style>
  	body{
- 		background-color : rgb(111,167,235);
+ 		background-color : skyblue;
  	}
  </style>
 <meta charset="utf-8">

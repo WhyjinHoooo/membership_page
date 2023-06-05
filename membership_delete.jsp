@@ -5,7 +5,7 @@
 <html>
 	<style>
 		body{
-			background-color: lightblue;
+			background-color: skyblue;
 			font-color: navy;
 		}
 		h1{
