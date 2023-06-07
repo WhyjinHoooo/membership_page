@@ -177,8 +177,8 @@
 			</select>
 			<input type="text" name="sp2"/>	
 			<input type="text" name="sp3"/><br>
-			<input type="checkbox" name="sms_al" value="y" id="input_yes1"/>SMS 광고 수신을 동의합니다.
-			<input type="hidden" name="sms_al" value="n" id="input_no1">
+			<input type="checkbox" name="sms_al" value="yes" id="input_yes1"/>SMS 광고 수신을 동의합니다.
+			<input type="hidden" name="sms_al" value="no" id="input_no1">
 		</td>
 		</tr>
 		<!-- 이메일 -->
@@ -192,8 +192,8 @@
 						<option value="naver.com"&gtnaver.com></option>
 						<option value="gamil.com"&gtgmail.com></option>
 					</select><br>
-					<input type="checkbox" name="email_al" value="y" id="input_yes2"/>e-mail광고 수신을 동의합니다.
-					<input type="hidden" name="sms_al" value="n" id="input_no2">
+					<input type="checkbox" name="email_al" value="yes" id="input_yes2"/>e-mail광고 수신을 동의합니다.
+					<input type="hidden" name="sms_al" value="no" id="input_no2">
 			</td>
 		</tr>
 		<!-- 주소 -->

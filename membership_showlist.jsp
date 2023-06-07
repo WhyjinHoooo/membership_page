@@ -39,7 +39,7 @@
 	<center>
 	<table border=1>
 	<tr style="text-align:center";>
-		<td>아이디</td><td>이름</td><td>성별</td><td>출생년</td><td>출생월</td><td>출생일</td><td>전화번호</td><td>이메일ID</td><td>도매인 주소</td><td>우편번호</td><td>지번주소</td><td>도로명주소</td><td>상세주소</td>
+		<td>아이디</td><td>이름</td><td>성별</td><td>출생년</td><td>출생월</td><td>출생일</td><td>전화번호</td><td>sms수신여부</td><td>이메일ID</td><td>도매인 주소</td><td>이메일 수신여부</td><td>우편번호</td><td>지번주소</td><td>도로명주소</td><td>상세주소</td>
 	</tr>
 	<% 	
 	PreparedStatement pstmt = null;
@@ -58,8 +58,10 @@
 		String birth_m = rs.getString("birth_m");
 		String birth_d = rs.getString("birth_d");
 		String tel = rs.getString("tel");
+		String sms_al = rs.getString("sms_al");
 		String email_id = rs.getString("email_id");
 		String email_domain = rs.getString("email_domain");
+		String email_al = rs.getString("email_al");
 		String addr_post = rs.getString("addr_post");
 		String addr_lot = rs.getString("addr_lot");
 	 	String addr_road = rs.getString("addr_road");
@@ -74,8 +76,10 @@
 		<td><%=birth_m%></td>
 		<td><%=birth_d%></td>
 		<td><%=tel%></td>
+		<td><%=sms_al%></td>
 		<td><%=email_id%></td>	
 		<td><%=email_domain%></td>
+		<td><%=email_al%></td>
 		<td><%=addr_post%></td>
 		<td><%=addr_lot%></td>
 		<td><%=addr_road%></td>	
