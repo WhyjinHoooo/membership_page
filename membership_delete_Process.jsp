@@ -36,23 +36,25 @@
 	Class.forName("com.mysql.jdbc.Driver");
 	conn = DriverManager.getConnection(url, id, pwd);
 	
+	String delete_id = request.getParameter("delete_id");
 	String delete_pwd = request.getParameter("delete_pwd");
 	String member_id = (String)session.getAttribute("member_id");
 	
-	String sql = "SELECT member_pwd FROM membership_join WHERE member_id='"+member_id+"'"; 
+	String sql = "SELECT member_id,member_pwd FROM membership_join WHERE member_id='"+member_id+"'"; 
 	
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 	String member_pwd = null;
 	ResultSet rs = pstmt.executeQuery();
 	
 	if(rs.next()){
+		member_id=rs.getString("member_id");
 		member_pwd=rs.getString("member_pwd");
 	}
 	
-	if(!delete_pwd.equals(member_pwd)){
+	if(!delete_pwd.equals(member_pwd) && !delete_id.equals(member_id)){
 		out.println("<script>alert('비밀번호가 틀렸습니다. 다시 입력해주세요.'); location.href='membership_delete.jsp'</script>");
 	} else{
-		String sql2 = "DELETE FROM membership_join WHERE member_pwd='"+delete_pwd+"'";
+		String sql2 = "DELETE FROM membership_join WHERE member_pwd='"+delete_pwd+"' and member_id='" + delete_id + "'";
 		PreparedStatement pstmt2 = conn.prepareStatement(sql2);
 		pstmt2.executeUpdate(); 
 		out.println("<script>location.href='membership_delete_success.jsp'</script>");

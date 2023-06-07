@@ -148,6 +148,7 @@
 				}
 				</script>
 			</select>년
+			
 			<select name="birthMonth">
 				<script>
 				for(var i = 12 ; i >=1 ; i--){
@@ -155,6 +156,7 @@
 				}
 				</script>
 			</select>월
+			
 			<select name="birthDay">
 				<script>
 				for(var i = 31 ; i >=1 ; i--){
@@ -162,6 +164,7 @@
 				}
 				</script>
 			</select>일
+			
 				<input type="radio" name="calendar_type" value="2">양력
 				<input type="radio" name="calendar_type" value="1">음력
 			</td>

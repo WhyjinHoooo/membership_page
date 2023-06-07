@@ -101,10 +101,11 @@
 			
 		}
 	</script>
+	
 </head>
 <body>
 <%
-	String member_id = (String)session.getAttribute("member_id");
+	String member_id = request.getParameter("admin_edit_Name");
 	String member_pwd = null;
 	String member_name = null;	
 	String member_gender = null;
@@ -132,6 +133,8 @@
 	rs = pstmt.executeQuery();
 	// 5) 결과를 테이블에 출력
 	if(rs.next()) {
+		session.setAttribute("admin_edit_Name",member_id);
+		
 		member_pwd = rs.getString("member_pwd");
 		member_name = rs.getString("member_name");	
 		member_gender = rs.getString("member_gender");
@@ -158,7 +161,7 @@
 
 <center>
 	<h1>정보수정</h1>
-	<form name = "update" action = "membership_update.jsp" onSubmit = "return validateUpdate()">
+	<form name = "update" action = "membership_admin_update_ok.jsp" onSubmit = "return validateUpdate()">
 	<table border="1">
 	<!-- 아이디 -->
 	<tr><td class="info">아이디</td>

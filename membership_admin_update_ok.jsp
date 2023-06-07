@@ -25,7 +25,7 @@
 	Class.forName("com.mysql.jdbc.Driver");
 	conn = DriverManager.getConnection(url, id, pwd);
 	
-	String member_id =(String)session.getAttribute("member_id");
+	String member_id =(String)session.getAttribute("admin_edit_Name");
 	
 	String usr_pwd = request.getParameter("pwd");
 	String usrname = request.getParameter("userName");
@@ -77,8 +77,8 @@
 		}
 %>
 		<script>
-		alert("회원정보가 수정되었습니다. 로그인페이지로 돌아갑니다.");
-		window.location.href='membership_login.jsp';
+		alert("회원정보가 수정되었습니다. 관리자 페이지로 돌아갑니다..");
+		window.location.href='membership_showlist.jsp';
 		</script>
 </body>
 </html>
